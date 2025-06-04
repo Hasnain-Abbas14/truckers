@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/app_colors.dart';
 import '../../../themes/app_text_styles.dart';
+import '../../../widget/custom_footer.dart';
 
 
 class AllBills extends StatefulWidget {
@@ -134,7 +135,8 @@ class _AllBillsState extends State<AllBills> {
                 Icon(Icons.more_horiz,color: Color(0xff262626),size: 25.r,)
               ],
             ),
-          )
+          ),
+          CustomFooter(),
         ],
       ),
     );

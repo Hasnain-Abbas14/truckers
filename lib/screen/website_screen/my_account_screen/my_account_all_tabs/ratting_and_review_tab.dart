@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truckerbs_website/themes/app_text_styles.dart';
 
+import '../../../../widget/custom_footer.dart';
+
 
 class RattingAndReviewTab extends StatelessWidget {
   const RattingAndReviewTab({super.key});
@@ -367,7 +369,8 @@ class RattingAndReviewTab extends StatelessWidget {
             ),
           ],
         ),
-      )
+      ),
+      CustomFooter(),
     ],
     );
   }

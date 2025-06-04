@@ -5,6 +5,8 @@ import 'package:truckerbs_website/themes/app_text_styles.dart';
 import 'package:truckerbs_website/widget/custom_button.dart';
 import 'package:truckerbs_website/widget/all_widget.dart';
 
+import '../../../widget/custom_footer.dart';
+
 class TruckersHub extends StatelessWidget {
   final VoidCallback onTapJoinNow;
   const TruckersHub({super.key, required this.onTapJoinNow});
@@ -579,9 +581,10 @@ class TruckersHub extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30.h,),
-
+          CustomFooter(),
         ],
       ),
+
     );
   }
 }

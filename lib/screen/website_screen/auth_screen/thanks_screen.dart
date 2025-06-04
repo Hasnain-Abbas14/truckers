@@ -6,8 +6,8 @@ import 'package:truckerbs_website/widget/custom_button.dart';
 import '../../../themes/app_colors.dart';
 
 class ThanksScreen extends StatelessWidget {
-  final VoidCallback onTapHomePageButton;
-  const ThanksScreen({super.key, required this.onTapHomePageButton});
+  final VoidCallback onTapCompleteProfile;
+  const ThanksScreen({super.key, required this.onTapCompleteProfile});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class ThanksScreen extends StatelessWidget {
                 fontWeight: FontWeight.w400,)
             ),
             SizedBox(height: 60.h,),
-            CustomButton(title: "Go to Home Page", onTap:onTapHomePageButton,height: 70.h,)
+            CustomButton(title: "Complete Profile Info", onTap:onTapCompleteProfile,height: 70.h,)
 
 
 

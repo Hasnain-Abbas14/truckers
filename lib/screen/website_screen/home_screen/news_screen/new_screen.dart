@@ -5,6 +5,8 @@ import 'package:truckerbs_website/themes/app_text_styles.dart';
 import 'package:truckerbs_website/widget/custom_button.dart';
 import 'package:truckerbs_website/widget/all_widget.dart';
 
+import '../../../../widget/custom_footer.dart';
+
 class NewScreen extends StatelessWidget {
   final VoidCallback onTapDetails;
   const NewScreen({super.key, required this.onTapDetails});
@@ -710,7 +712,8 @@ class NewScreen extends StatelessWidget {
 
               ],
             ),
-          )
+          ),
+          CustomFooter(),
 
         ],
       ),

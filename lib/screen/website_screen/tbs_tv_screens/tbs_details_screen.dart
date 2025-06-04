@@ -5,6 +5,7 @@ import 'package:truckerbs_website/widget/all_widget.dart';
 
 import '../../../../themes/app_text_styles.dart';
 import '../../../../widget/custom_button.dart';
+import '../../../widget/custom_footer.dart';
 
 
 class TbsDetailsScreen extends StatefulWidget {
@@ -947,7 +948,7 @@ class _TbsDetailsScreenState extends State<TbsDetailsScreen> {
             ],
           ),
           SizedBox(height: 30.h,),
-
+          CustomFooter(),
 
         ],
       ),

@@ -4,6 +4,7 @@ import 'package:truckerbs_website/widget/custom_button.dart';
 
 import '../../../themes/app_colors.dart';
 import '../../../themes/app_text_styles.dart';
+import '../../../widget/custom_footer.dart';
 
 
 class PlaceBid extends StatefulWidget {
@@ -521,6 +522,7 @@ class _PlaceBidState extends State<PlaceBid> {
             ),
           ),
           SizedBox(height: 100.h,),
+          CustomFooter(),
         ],
       ),
     );

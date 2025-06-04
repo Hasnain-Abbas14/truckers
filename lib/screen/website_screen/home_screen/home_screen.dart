@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:svg_flutter/svg.dart';
 import 'package:truckerbs_website/themes/app_colors.dart';
 import 'package:truckerbs_website/themes/app_text_styles.dart';
 import 'package:truckerbs_website/widget/custom_button.dart';
 import 'package:truckerbs_website/widget/all_widget.dart';
+
+import '../../../widget/custom_footer.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -17,75 +20,60 @@ class HomeScreen extends StatelessWidget {
       children: [
         SizedBox(height: 10.h,),
         Container(
-          height: MediaQuery.sizeOf(context).height*0.55.h,
-          color: const Color(0xffEFEFEF),
-          child: Center(
-            child:
-            Text(
-              'Rotating Ad Banner',
-              style: AppTextStyles.mulishStyle.copyWith(  color:AppColors.primaryBlack,
-                fontSize: 96.sp,
-                fontWeight: FontWeight.w400,
-                letterSpacing: 0.96,)
-            ),
+          width: double.infinity.w,
+          height: 936.h,
+          padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 30.h),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage("assets/image/user/Rectangle 1600.png")),
           ),
-        ),
-        SizedBox(height: 15.h,),
-        Container(
-            padding: EdgeInsets.symmetric(horizontal: 45.w,vertical: 50.h),
-            color: const Color(0xf10F8F8F8),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Welcome to Trucker BS',
-                  style: AppTextStyles.mulishStyle.copyWith(color: const Color(0xFFFF0000),
-                    fontSize: 32.sp,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.32,)
-                ),
-                SizedBox(height: 5.h,),
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Your Trucker ',
-                        style: AppTextStyles.bebasStyle.copyWith(    color: const Color(0xFF333333),
-                          fontSize: 128.sp,
-                          fontWeight: FontWeight.w400,
-
-                          letterSpacing: -0.58,)
-                      ),
-                      TextSpan(
-                        text: 'Community Hub!',
-                        style:AppTextStyles.bebasStyle.copyWith( color: const Color(0xFFFF0000),
-                          fontSize: 128.sp,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: -0.58,)
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  'Join our team of dedicated drivers and explore new opportunities. We value safety, reliability, and professionalism. Be a part of a company that supports and appreciates its drivers.',
-                  style: AppTextStyles.mulishStyle.copyWith(  color: const Color(0xFF828282),
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: -0.63,)
-                ),
-                SizedBox(height: 30.h,),
-                Container(
-                  padding: EdgeInsets.only(right: 30.w),
-                  decoration: ShapeDecoration(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                width: 369.w,
+                height: 80.h,
+                decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20).w,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50.r),
+                      topRight: Radius.circular(5.r),
+                      bottomLeft: Radius.circular(5.r),
+                      bottomRight: Radius.circular(50.r),
+                    ),
                   ),
-                  shadows: const [
+                ),
+                child: Center(
+                  child: Text(
+                    'Load Board Solutions.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: const Color(0xFFFF0000),
+                      fontSize: 24.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 32.h,),
+              Text(
+                'One Stop Solution\nyour transport\nrequirements',
+                style: AppTextStyles.bebasStyle.copyWith(  color: Colors.white,
+                  fontSize: 96.sp,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: -0.58,),
+              ),
+              SizedBox(height: 30.h,),
+              Container(
+                width: 787.w,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+                  shadows: [
                     BoxShadow(
                       color: Color(0x3FC8C8C8),
                       blurRadius: 20,
@@ -94,123 +82,106 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                  child: TextFormField(
+                child: TextFormField(
 
 
-                      decoration: InputDecoration(
+                  decoration: InputDecoration(
 
-                          suffixIcon: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 15.w,vertical: 5.h),
-                            padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 7.h),
-                            decoration: ShapeDecoration(
-                              color: const Color(0xFFFF0000),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4).w),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                    'Search',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyles.mulishStyle.copyWith(color: Colors.white,
-                                      fontSize: 24.sp,
-                                      fontWeight: FontWeight.w600,)
-                                ),
-                              ],
-                            ),
+                    suffixIcon: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 15.w,vertical: 5.h),
+                      padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 7.h),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFFF0000),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4).w),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                              'Search',
+                              textAlign: TextAlign.center,
+                              style: AppTextStyles.mulishStyle.copyWith(color: Colors.white,
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w600,)
                           ),
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(
-                                height: 25.h,
-                                width: 25.w,
-                                "assets/website/auth_screen/Combined-Shape.png"),
-                          ),
+                        ],
+                      ),
+                    ),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                          height: 25.h,
+                          width: 25.w,
+                          "assets/website/auth_screen/Combined-Shape.png"),
+                    ),
 
-                          hintText: "Search on TruckersBS",
-                          enabledBorder:InputBorder.none,
-                          hintStyle: AppTextStyles.mulishStyle.copyWith(color: const Color(0xFF828282),
+                    hintText: "Search on TruckersBS",
+                    enabledBorder:InputBorder.none,
+                    hintStyle: AppTextStyles.mulishStyle.copyWith(color: const Color(0xFF828282),
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 0.24,),
-                  errorBorder: OutlineInputBorder(
+                    errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8).w,
                       borderSide: const BorderSide(
-                      color: AppColors.redColor
+                          color: AppColors.redColor
                       ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8).w,
+                      borderSide: const BorderSide(
+                          color: Colors.transparent
                       ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8).w,
-                          borderSide: const BorderSide(
-                              color: Colors.transparent
-                          ),
-                        ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8).w,
-                            borderSide: const BorderSide(
-                                color: AppColors.primaryColor
-                            ),
-                          ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8).w,
+                      borderSide: const BorderSide(
+                          color: AppColors.primaryColor
+                      ),
+                    ),
 
-                      ),
-                   ),
+                  ),
                 ),
-                SizedBox(height: 41.h,),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CustomButton(title: "Join the Community",width: MediaQuery.sizeOf(context).width*0.28.w, onTap: (){}),
+              ),
+              SizedBox(height: 41.h,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CustomButton(title: "Get Started with RoadBarks.",width: 369.w, onTap: (){}),
                   SizedBox(width: 15.w,),
-                    Container(
-                      height: 70.h,
-                      padding: EdgeInsets.symmetric(horizontal: 15.w),
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1.w, color: const Color(0xFFFF0000)),
-                          borderRadius: BorderRadius.circular(5).w,
-                        ),
+                  Container(
+                    width: 310.w,
+                    height: 70.h,
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 1.w, color: const Color(0xFFFFFFFF)),
+                        borderRadius: BorderRadius.circular(5).w,
                       ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/image/home/flag-us-svgrepo-com 1.png",height: 25.h,width: 25.w,),
-                          SizedBox(width: 10.w,),
-                          Text(
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/image/home/flag-us-svgrepo-com 1.png",height: 25.h,width: 25.w,),
+                        SizedBox(width: 10.w,),
+                        Text(
                             'United States',
                             textAlign: TextAlign.center,
                             style: AppTextStyles.poppinsStyle.copyWith( color:AppColors.primaryColor,
                               fontSize: 24.sp,
                               fontWeight: FontWeight.w600,)
-                          ),
-                          SizedBox(width: 10.w,),
-                          const Icon(Icons.keyboard_arrow_down_rounded,color: Color(0xff828282),size: 10,)
-                        ],
-                      ),
-                    )
-                  ],
-                )
-
-              ],
+                        ),
+                        SizedBox(width: 10.w,),
+                        const Icon(Icons.keyboard_arrow_down_rounded,color: Color(0xff828282),size: 10,)
+                      ],
+                    ),
+                  )
+                ],
               ),
-            ),
-            Image.asset(
-                width: MediaQuery.sizeOf(context).width*0.35.w,
-                "assets/image/home/Group 1000006757.png")
-            
-          ],
-        ),
-        ),
-        SizedBox(height: 10.h,),
-        Center(
-          child: Text(
-            'Trucking News & Updates',
-            textAlign: TextAlign.center,
-            style: AppTextStyles.bebasStyle.copyWith( color: const Color(0xFF333333),
-              fontSize: 96.sp,
-              fontWeight: FontWeight.w400,
-              letterSpacing: -0.58,)
+            ],
           ),
         ),
         SizedBox(height: 10.h,),
@@ -219,138 +190,139 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                height: MediaQuery.sizeOf(context).height*0.20.h,
-                color: const Color(0xffEFEFEF),
-                child: Center(
-                  child:
-                  Text(
-                      'Ad Banner',
-                      style: AppTextStyles.mulishStyle.copyWith(  color:AppColors.primaryBlack,
-                        fontSize: 38.sp,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.96,)
-                  ),
+              Text(
+                'Logistic Features',
+                style:AppTextStyles.mulishStyle.copyWith(
+                  color: const Color(0xFF828282),
+                  fontSize: 24.sp,
+                  fontFamily: 'Mulish',
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 0.24,
                 ),
               ),
-              SizedBox(height: 70.h,),
-              PicToTheLeftSide(imagePath: "assets/image/home/Rectangle 90.png", title: "Latest Industry News", subtitle: "Autonomous Trucks Set to Revolutionize the Industry", description: "Autonomous trucks are becoming a reality as major companies invest heavily in this technology. With promises of improved efficiency and safety, self-driving trucks are poised to change the logistics landscape. Explore how this innovation is expected to impact the trucking industry and what it means for drivers and companies alike.", buttonText: "Read More", buttonTextTwo: "Share Article ", iconRequired: Icon(Icons.share,color: AppColors.primaryWhite,size: 20,), onTapButton: onTapNew,)
-             , SizedBox(height: 50.h,),
-              Center(
-                child: Text(
-                    'Latest TBS TV Episodes',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.bebasStyle.copyWith( color: const Color(0xFF333333),
-                      fontSize: 96.sp,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: -0.58,)
-                ),
-              ),
-              SizedBox(height: 50.h,),
-              Container(
-                height: MediaQuery.sizeOf(context).height*0.20.h,
-                color: const Color(0xffEFEFEF),
-                child: Center(
-                  child:
-                  Text(
-                      'Ad Banner',
-                      style: AppTextStyles.mulishStyle.copyWith(  color:AppColors.primaryBlack,
-                        fontSize: 38.sp,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.96,)
-                  ),
-                ),
-              ),
-              SizedBox(height: 70.h,),
-              const PicToTheRightSide(imagePath: "assets/image/home/Rectangle 90 (3).png", title: "Catch Up on TBS TV", description: "In this episode, we explore the cutting-edge technologies transforming the trucking industry. Join us as we interview industry leaders and delve into the innovations driving efficiency and safety on the roads. In this episode, we explore the cutting-edge technologies transforming the trucking industry. Join us as we interview industry leaders and delve into the innovations driving efficiency and safety on the roads.In this episode, we explore the cutting-edge technologies transforming.", buttonText: "Subscribe for Updates", buttonTextTwo: "Watch Video", iconRequired: Icon(Icons.play_arrow,color: AppColors.primaryWhite,size: 20,), subtitle: 'The Future of Trucking',)
-,
-              SizedBox(height: 50.h,),
-              Center(
-                child: Text(
-                    "Connect with Fellow Truckers",
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.bebasStyle.copyWith( color: const Color(0xFF333333),
-                      fontSize: 96.sp,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: -0.58,)
-                ),
-              ),
-              SizedBox(height: 50.h,),
-              Container(
-                height: MediaQuery.sizeOf(context).height*0.20.h,
-                color: const Color(0xffEFEFEF),
-                child: Center(
-                  child:
-                  Text(
-                      'Ad Banner',
-                      style: AppTextStyles.mulishStyle.copyWith(  color:AppColors.primaryBlack,
-                        fontSize: 38.sp,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.96,)
-                  ),
-                ),
-              ),
-              SizedBox(height: 70.h,),
-              PicToTheLeftSide(imagePath: "assets/image/home/Rectangle 90 (1).png", title: "Join the Trucker Community", subtitle: "Connect and Network with Fellow Truckers Nationwide", description: "Connect with fellow truckers across the country. Share your experiences, ask questions, and find support from a network of professionals who understand the challenges and rewards of life on the road. Connect with fellow truckers across the country. Share your experiences, ask questions, and find support.", buttonText: "Share Your Story", buttonTextTwo: "Join Now", iconRequired: Icon(Icons.groups_outlined,color: AppColors.primaryWhite,size: 20,), onTapButton: () {  },)
-,
-              SizedBox(height: 50.h,),
-              Center(
-                child: Text(
-                    'Find & Bid on Loads',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.bebasStyle.copyWith( color: const Color(0xFF333333),
-                      fontSize: 96.sp,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: -0.58,)
-                ),
-              ),
-              SizedBox(height: 50.h,),
-              Container(
-                height: MediaQuery.sizeOf(context).height*0.20.h,
-                color: const Color(0xffEFEFEF),
-                child: Center(
-                  child:
-                  Text(
-                      'Ad Banner',
-                      style: AppTextStyles.mulishStyle.copyWith(  color:AppColors.primaryBlack,
-                        fontSize: 38.sp,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.96,)
-                  ),
-                ),
-              ),
-              SizedBox(height: 70.h,),
-              const PicToTheRightSide(imagePath: "assets/image/home/Rectangle 90 (4).png", title: "Contact Shipper", subtitle: "Explore Available Loads and Connect with Shippers", description: "Discover a comprehensive list of available loads waiting to be transported. Our loadboard connects truckers with shippers, providing essential details like load type, weight, and destination. Place bids, negotiate terms, and secure your next haul with ease.", buttonText: "Place a Bid", buttonTextTwo: "View LoadBoard", iconRequired: Icon(Icons.visibility,color: AppColors.primaryWhite,size: 20,))
-,
+              SizedBox(height: 10.h,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
 
-              SizedBox(height: 50.h,),
-              Center(
-                child: Text(
-                    'Stay Safe on the Road',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.bebasStyle.copyWith( color: const Color(0xFF333333),
-                      fontSize: 96.sp,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: -0.58,)
-                ),
-              ),
-              SizedBox(height: 50.h,),
-              Container(
-                height: MediaQuery.sizeOf(context).height*0.20.h,
-                color: const Color(0xffEFEFEF),
-                child: Center(
-                  child:
                   Text(
-                      'Ad Banner',
-                      style: AppTextStyles.mulishStyle.copyWith(  color:AppColors.primaryBlack,
-                        fontSize: 38.sp,
+                      'Key Features',
+                      style: AppTextStyles.bebasStyle.copyWith(   color: const Color(0xFF333333),
+                        fontSize: 96.sp,
                         fontWeight: FontWeight.w400,
-                        letterSpacing: 0.96,)
+                        letterSpacing: -0.58,)
                   ),
-                ),
+                  Spacer(),
+                  const Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  const CircleAvatar(
+                    backgroundColor: AppColors.primaryColor,
+                    radius: 15,
+                    child: Icon(Icons.arrow_forward_ios,
+                        color: Colors.white, size: 16),
+                  )
+
+                ],
               ),
-              SizedBox(height: 70.h,),
-               PicToTheLeftSide(imagePath: "assets/image/home/Rectangle 90 (3).png", title: "View Road Report", subtitle: "Stay Informed with Latest Safety Alerts & Updates", description: "Keep up-to-date with critical safety alerts affecting the trucking industry. Our platform provides timely notifications on road hazards, weather conditions, and regulatory changes, helping you make informed decisions and ensuring a safe journey.", buttonText: "Check Danger Zone", buttonTextTwo: "View Alerts", iconRequired: Icon(Icons.visibility,color: AppColors.primaryWhite,size: 20,), onTapButton: () {  },)
+              SizedBox(height: 10.h,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(child: KeyFeaturesContainer(imagePath: "assets/image/user/Rectangle 1555.png")),
+                  Expanded(child: KeyFeaturesContainer(imagePath: "assets/image/user/Rectangle 1557.png")),
+                  Expanded(child: KeyFeaturesContainer(imagePath: "assets/image/user/Rectangle 1559.png")),
+                ],
+              ),
+              SizedBox(height: 50.h,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Amazing Features',
+                          style:AppTextStyles.mulishStyle.copyWith(  color: const Color(0xFF828282),
+                            fontSize: 24.sp,
+                            fontFamily: 'Mulish',
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 0.24,)
+                        ),
+                        Text(
+                          'we offer quick & powerful solution for transport',
+                          style: AppTextStyles.bebasStyle.copyWith(   color: const Color(0xFF333333),
+                            fontSize: 96.sp,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: -0.58,)
+                        ),
+                        Text(
+                          'We provide fast and reliable transport solutions, ensuring seamless logistics with power and precision to keep your business moving efficiently.',
+                          style:AppTextStyles.mulishStyle.copyWith(     color: const Color(0xFF828282),
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 0.24,)
+                        ),
+                        SizedBox(height: 15.h,),
+                        Container(
+                          width: 369.w,
+                          padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFFF0000),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Explore All Features',
+                              textAlign: TextAlign.center,
+                              style:AppTextStyles.poppinsStyle.copyWith(     color: Colors.white,
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w600,)
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            FeaturesContainer(imagePath: "assets/website/auth_screen/tv-svgrepo-com 1.svg", title: "Stay Ahead with RB Studio", subTitle: "In this episode, we explore the cutting-edge technologies transforming the trucking industry. Join us as we interview industry we explore the cutting"),
+                            SizedBox(width: 10,),
+                            FeaturesContainer(imagePath: "assets/website/auth_screen/load-circle-svgrepo-com 1.svg", title: "Explore Loads, Connect Fast", subTitle: "In this episode, we explore the cutting-edge technologies transforming the trucking industry. Join us as we interview industry we explore the cutting"),
+
+                          ],
+                        ),
+SizedBox(height: 40.h,),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            FeaturesContainer(imagePath: "assets/website/auth_screen/community-group-leader-2-svgrepo-com 1.svg", title: "Tools for the Entire Logistics Industry", subTitle: "In this episode, we explore the cutting-edge technologies transforming the trucking industry. Join us as we interview industry we explore the cutting"),
+                            SizedBox(width: 10,),
+                            FeaturesContainer(imagePath: "assets/website/auth_screen/auction-bid-svgrepo-com 1.svg", title: "Reliable Freight and Business Opportunities Every Day", subTitle: "In this episode, we explore the cutting-edge technologies transforming the trucking industry."),
+
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 50.h,),
 
             ],
           ),
@@ -396,6 +368,71 @@ class HomeScreen extends StatelessWidget {
               ),
             )
           ],
+        ),
+        SizedBox(height: 50.h,),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 45.w,vertical: 50.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Center(
+                child: Text(
+                  'From Our Blog',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.mulishStyle.copyWith(   color: const Color(0xFF828282),
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.24,)
+                ),
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Spacer(),
+
+                  Text(
+                      'Latest News',
+                      style: AppTextStyles.bebasStyle.copyWith(   color: const Color(0xFF333333),
+                        fontSize: 96.sp,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: -0.58,)
+                  ),
+                  Spacer(),
+                  const Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  const CircleAvatar(
+                    backgroundColor: AppColors.primaryColor,
+                    radius: 15,
+                    child: Icon(Icons.arrow_forward_ios,
+                        color: Colors.white, size: 16),
+                  )
+
+                ],
+              ),
+              SizedBox(height: 40.h,),
+              SizedBox(height: 10.h,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(child: NewsContainer(onTapNews:onTapNew,imagePath: "assets/image/user/Rectangle 1555.png")),
+                  Expanded(child: NewsContainer(onTapNews:onTapNew,imagePath: "assets/image/user/Rectangle 1557.png")),
+                  Expanded(child: NewsContainer(onTapNews:onTapNew,imagePath: "assets/image/user/Rectangle 1559.png")),
+                ],
+              ),
+              SizedBox(height: 50.h),
+
+
+
+            ],
+          ),
         ),
         SizedBox(height: 50.h,),
         Center(
@@ -451,7 +488,8 @@ class HomeScreen extends StatelessWidget {
               
             ],
           ),
-        )
+        ),
+        CustomFooter(),
 
 
 

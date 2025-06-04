@@ -60,17 +60,18 @@ class ReusableTextForm extends StatelessWidget {
             hintStyle:AppTextStyles.regularStyle.copyWith(fontSize: 14,color: AppColors.hintColor),
 
             contentPadding: const EdgeInsets.all(10).w,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8).w,
-              borderSide: BorderSide(
-                color: borderColor??Colors.transparent
-              ),
-            ),
+
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                     color: AppColors.redColor
                 ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(
+                  color: AppColors.hintColor
+              ),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
@@ -80,8 +81,8 @@ class ReusableTextForm extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                  color: focusBorderColor??Colors.transparent
+              borderSide: const BorderSide(
+                  color: AppColors.primaryColor
               ),
             )
         ),

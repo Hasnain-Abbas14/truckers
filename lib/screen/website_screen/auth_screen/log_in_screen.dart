@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:truckerbs_website/themes/app_colors.dart';
 import 'package:truckerbs_website/themes/app_text_styles.dart';
 import 'package:truckerbs_website/widget/custom_button.dart';
@@ -27,7 +27,7 @@ class _LogInScreenState extends State<LogInScreen> {
 
   bool _isLoggingIn = false;
 
-  /// Handles user login using Firebase Firestore
+  /// Handles user login using Firebase Authentication
   Future<void> _handleLogin() async {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -41,28 +41,28 @@ class _LogInScreenState extends State<LogInScreen> {
       final email = _emailController.text.trim();
       final password = _passwordController.text.trim();
 
-      // Query Firestore to validate the user
-      final querySnapshot = await FirebaseFirestore.instance
-          .collection('users')
-          .where('email', isEqualTo: email)
-          .where('password', isEqualTo: password) // Compare plain passwords (not secure, hash them in production)
-          .get();
+      // Use Firebase Auth to sign in
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
 
-      if (querySnapshot.docs.isEmpty) {
-        // No user found with the provided credentials
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Invalid email or password')),
-        );
+      // If sign in is successful:
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Login successful!')),
+      );
+      widget.onTapLogIn();
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+      if (e.code == 'user-not-found') {
+        errorMessage = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        errorMessage = 'Wrong password provided for that user.';
       } else {
-        // User found: login successful
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Login successful!')),
-        );
-
-        widget.onTapLogIn(); // Perform post-login action (e.g., navigate to dashboard)
+        errorMessage = e.message ?? 'An unknown error occurred.';
       }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(errorMessage)),
+      );
     } catch (e) {
-      // Handle errors
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e')),
       );
@@ -94,15 +94,16 @@ class _LogInScreenState extends State<LogInScreen> {
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Center(
-                child: Text('Login',
-                    style: AppTextStyles.mulishStyle.copyWith(
-                      color: AppColors.primaryBlack,
-                      fontSize: 56.sp,
-                      fontWeight: FontWeight.w600,
-                    )),
+                child: Text(
+                  'Login',
+                  style: AppTextStyles.mulishStyle.copyWith(
+                    color: AppColors.primaryBlack,
+                    fontSize: 56.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
               SizedBox(height: 10.h),
               Center(
@@ -117,12 +118,14 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
               ),
               SizedBox(height: 50.h),
-              Text('Email',
-                  style: AppTextStyles.mulishStyle.copyWith(
-                    color: AppColors.text82,
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w400,
-                  )),
+              Text(
+                'Email',
+                style: AppTextStyles.mulishStyle.copyWith(
+                  color: AppColors.text82,
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
               SizedBox(height: 10.h),
               ReusableTextForm(
                 controller: _emailController,
@@ -140,12 +143,14 @@ class _LogInScreenState extends State<LogInScreen> {
                 },
               ),
               SizedBox(height: 24.h),
-              Text('Password',
-                  style: AppTextStyles.mulishStyle.copyWith(
-                    color: AppColors.text82,
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w400,
-                  )),
+              Text(
+                'Password',
+                style: AppTextStyles.mulishStyle.copyWith(
+                  color: AppColors.text82,
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
               SizedBox(height: 10.h),
               ReusableTextForm(
                 controller: _passwordController,
@@ -164,27 +169,28 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               SizedBox(height: 24.h),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
                     onTap: () {
                       // Add "Forgot Password?" functionality here if required
                     },
-                    child: Text('Forgot Password?',
-                        textAlign: TextAlign.right,
-                        style: AppTextStyles.mulishStyle.copyWith(
-                          color: AppColors.primaryColor,
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.w400,
-                        )),
+                    child: Text(
+                      'Forgot Password?',
+                      textAlign: TextAlign.right,
+                      style: AppTextStyles.mulishStyle.copyWith(
+                        color: AppColors.primaryColor,
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
                 ],
               ),
               SizedBox(height: 32.h),
               CustomButton(
                 title: _isLoggingIn ? 'Logging in...' : 'Login',
-                onTap: _isLoggingIn ? (){} : _handleLogin,
+                onTap: _isLoggingIn ? () {} : _handleLogin,
                 width: double.infinity.w,
               ),
               SizedBox(height: 32.h),
@@ -195,19 +201,21 @@ class _LogInScreenState extends State<LogInScreen> {
                     TextSpan(
                       children: [
                         TextSpan(
-                            text: 'Don’t have an account?  ',
-                            style: AppTextStyles.mulishStyle.copyWith(
-                              color: const Color(0xFFC4C4C4),
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w400,
-                            )),
+                          text: 'Don’t have an account?  ',
+                          style: AppTextStyles.mulishStyle.copyWith(
+                            color: const Color(0xFFC4C4C4),
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                         TextSpan(
-                            text: 'Signup',
-                            style: AppTextStyles.mulishStyle.copyWith(
-                              color: AppColors.primaryColor,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w700,
-                            )),
+                          text: 'Signup',
+                          style: AppTextStyles.mulishStyle.copyWith(
+                            color: AppColors.primaryColor,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ],
                     ),
                     textAlign: TextAlign.center,

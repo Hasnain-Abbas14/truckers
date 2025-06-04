@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:truckerbs_website/screen/dashboard_screens/home_screen.dart';
+import 'package:truckerbs_website/screen/subordinate_screens/subordinate_home_screen.dart';
 import 'package:truckerbs_website/screen/website_screen/auth_screen/main_screen_for_web.dart';
+import 'package:truckerbs_website/screen/website_screen/auth_screen/thanks_screen.dart';
 import 'package:truckerbs_website/screen/website_screen/home_screen/home_screen.dart';
 
-void main() async{
+void main() async {
   //WidgetsFlutterBinding.ensureInitialized();
   //const method = int.fromEnvironment('method', defaultValue: 1);
   //WidgetsFlutterBinding.ensureInitialized();
@@ -25,22 +27,17 @@ void main() async{
             storageBucket: "truckersbs44.firebasestorage.app",
             messagingSenderId: "29492259670",
             appId: "1:29492259670:web:90e0bf0102106cdaf504f7",
-            measurementId: "G-KXQQ3GYYX9"
-
-        )
-    );
+            measurementId: "G-KXQQ3GYYX9"));
     //var factory = databaseFactoryWeb;
   } else {
     await Firebase.initializeApp();
-
   }
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({super.key});
+  MyApp({super.key});
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +54,11 @@ class MyApp extends StatelessWidget {
           }
           if (snapshot.hasData) {
             print('firebase connected');
-
           }
-          return  ScreenUtilInit(
+          return ScreenUtilInit(
             designSize: const Size(1440, 1047),
             minTextAdapt: true,
-            splitScreenMode: true, // Make sure this parameter is available in your version of flutter_screenutil
+            splitScreenMode: true,
             builder: (context, child) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
@@ -71,19 +67,15 @@ class MyApp extends StatelessWidget {
                   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
                 ),
                 home:
-                // for website call MainScreenForWeb
-                const
-               MainScreenForWeb(),
-                //Call HomeScreen For Dashboard Of The Web.
-               // HomeScreenDashboard(),
+                    // for website call MainScreenForWeb
+                    const MainScreenForWeb(),
+                //Call HomeScreenDashboard For Dashboard Of The Web.
+                // HomeScreenDashboard(),
+                //Call SubOrdinateHomeScreen for subordinate
+                //SubOrdinateHomeScreen(),
               );
             },
           );
         });
-
-
-
-
-
   }
 }

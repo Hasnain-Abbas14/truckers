@@ -4,6 +4,8 @@ import 'package:truckerbs_website/themes/app_colors.dart';
 import 'package:truckerbs_website/themes/app_text_styles.dart';
 import 'package:truckerbs_website/widget/all_widget.dart';
 
+import '../../../widget/custom_footer.dart';
+
 class StoryScreen extends StatefulWidget {
   const StoryScreen({super.key});
 
@@ -151,7 +153,7 @@ class _StoryScreenState extends State<StoryScreen> {
           const Divider(thickness: 1,height: 1,color: Color(0xffC4C4C4),),
           SizedBox(height: 100.h,),
 
-
+          CustomFooter(),
 
 
         ],

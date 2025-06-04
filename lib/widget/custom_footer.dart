@@ -161,12 +161,12 @@ class CustomFooter extends StatelessWidget {
                       Image.asset(
                           height: 113.h,
                           width: 222.w,
-                          "assets/image/home/3 3.png"),
+                          "assets/image/user/Png red.png"),
                       SizedBox(
                         height: 10.h,
                       ),
                       Text(
-                          'Powered by Truckers, For Truckers, Where\nTrucking Matters!',
+                          'Drive Your Future. Power Your Business.\nStream Your Success.',
                           textAlign: TextAlign.center,
                           style: AppTextStyles.interStyle.copyWith(
                             color: AppColors.primaryBlack,

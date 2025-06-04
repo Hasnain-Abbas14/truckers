@@ -3,15 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truckerbs_website/themes/app_text_styles.dart';
 
 import '../../../themes/app_colors.dart';
+import '../../../widget/custom_footer.dart';
 
-class DriverReportAndStories extends StatefulWidget {
-  const DriverReportAndStories({super.key});
+class SearchForADriver extends StatefulWidget {
+  const SearchForADriver({super.key});
 
   @override
-  State<DriverReportAndStories> createState() => _DriverReportAndStoriesState();
+  State<SearchForADriver> createState() => _SearchForADriverState();
 }
 
-class _DriverReportAndStoriesState extends State<DriverReportAndStories> {
+class _SearchForADriverState extends State<SearchForADriver> {
   bool isCheckedThree = false;
 
   @override
@@ -526,7 +527,8 @@ class _DriverReportAndStoriesState extends State<DriverReportAndStories> {
                 ),
               ],
             ),
-          )
+          ),
+          CustomFooter(),
         ],
       ),
     );

@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,19 +17,66 @@ class ReportAndStatisticsTab extends StatefulWidget {
 
 class _ReportAndStatisticsTabState extends State<ReportAndStatisticsTab> {
   final List<ReportAndStatsModel> dataList = [
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Senior', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'New', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Junior', report: 'Unused Account'),
-
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Senior', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'New', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Junior', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Senior', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'New', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Junior', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Senior', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'New', report: 'Unused Account'),
-    ReportAndStatsModel(companyName: 'Trucker', userName: 'Abdullah', position: 'Junior', report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Senior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'New',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Junior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Senior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'New',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Junior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Senior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'New',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Junior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Senior',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'New',
+        report: 'Unused Account'),
+    ReportAndStatsModel(
+        companyName: 'Trucker',
+        userName: 'Abdullah',
+        position: 'Junior',
+        report: 'Unused Account'),
   ];
 
   DateTime? startDate;

@@ -5,6 +5,7 @@ import 'package:truckerbs_website/themes/app_text_styles.dart';
 import 'package:truckerbs_website/widget/custom_button.dart';
 
 import '../../../widget/all_widget.dart';
+import '../../../widget/custom_footer.dart';
 
 class TbsTvScreen extends StatelessWidget {
   final VoidCallback tbsDetails;
@@ -17,7 +18,8 @@ class TbsTvScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+        children:
+        [
           SizedBox(
             height: 40.h,
           ),
@@ -30,7 +32,7 @@ class TbsTvScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text('Transform your life with latest TBS TV Episodes',
+                    Text('RB Studio: Safety Talks, Business News, and Logistics Insights.',
                         style: AppTextStyles.mulishStyle.copyWith(
                           color: Color(0xFF101130),
                           fontSize: 76.sp,
@@ -341,6 +343,7 @@ class TbsTvScreen extends StatelessWidget {
               ],
             ),
           ),
+          CustomFooter(),
 
 
         ],

@@ -4,6 +4,7 @@ import 'package:truckerbs_website/themes/app_colors.dart';
 
 import '../../../../themes/app_text_styles.dart';
 import '../../../../widget/custom_button.dart';
+import '../../../../widget/custom_footer.dart';
 
 
 class NewDetailsScreen extends StatelessWidget {
@@ -632,6 +633,7 @@ class NewDetailsScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30.h,),
+          CustomFooter(),
 
         ],
       ),

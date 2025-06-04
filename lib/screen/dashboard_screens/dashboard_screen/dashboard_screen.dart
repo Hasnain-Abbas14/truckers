@@ -363,9 +363,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       height: 10.h,
                     ),
                     DataTable(
-                      horizontalMargin: 25,
-                      columnSpacing: 55,
-                      dividerThickness: 0,
+                      horizontalMargin: 40.w,
+                      columnSpacing: 60.w,
+                      dividerThickness: 0.w,
                       headingTextStyle: AppTextStyles.regularStyle.copyWith(
                           color: AppColors.hintColor, fontSize: 12.sp),
                       clipBehavior: Clip.none,
@@ -378,8 +378,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           label: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text(
+                               Text(
                                 'Employee',
+                                style: AppTextStyles.nunito.copyWith(color: Color(0xFF030229),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,),
                               ),
 
                               Icon(
@@ -394,8 +397,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           label: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text(
+                             Text(
                                 'Date of Loading',
+                                style: AppTextStyles.nunito.copyWith(color: Color(0xFF030229),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,),
                               ),
                               Icon(
                                 size: 20.r,
@@ -409,8 +415,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           label: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text(
+                               Text(
                                 'Price',
+                                style: AppTextStyles.nunito.copyWith(color: Color(0xFF030229),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,),
                               ),
 
                               Icon(
@@ -421,15 +430,21 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                             ],
                           ),
                         ),
-                        const DataColumn(
+                       DataColumn(
                           label: Text(
                             'Load Size',
+                            style: AppTextStyles.nunito.copyWith(color: Color(0xFF030229),
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,),
 
                           ),
                         ),
-                        const DataColumn(
+                       DataColumn(
                           label: Text(
                             'Load Owner',
+                            style: AppTextStyles.nunito.copyWith(color: Color(0xFF030229),
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,),
                           ),
                         ),
                       ],
@@ -442,28 +457,31 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                   style: AppTextStyles.regularStyle.copyWith(
                                       fontSize: 12.sp,
                                       color: AppColors.primaryBlack
-                                          .withOpacity(0.70)),
+                                          .withOpacity(0.96)),
 
                                 )),
                                 DataCell(Text(
                                     dataList[index].dateOfBuying.toString(),
-                                    style: AppTextStyles.regularStyle.copyWith(
-
-                                        color: AppColors.hintColor,
-                                        fontSize: 12.sp))),
+                                    style:AppTextStyles.regularStyle.copyWith(
+                                        fontSize: 12.sp,
+                                        color: AppColors.primaryBlack
+                                            .withOpacity(0.96)))),
                                 DataCell(Text(dataList[index].price.toString(),
-                                    style: AppTextStyles.regularStyle.copyWith(
-                                        color: AppColors.hintColor,
-                                        fontSize: 12.sp))),
+                                    style:AppTextStyles.regularStyle.copyWith(
+                                        fontSize: 12.sp,
+                                        color: AppColors.primaryBlack
+                                            .withOpacity(0.96)))),
                                 DataCell(Text(
                                     dataList[index].loadSize.toString(),
                                     style: AppTextStyles.regularStyle.copyWith(
-                                        color: AppColors.hintColor,
-                                        fontSize: 12.sp))),
+                                        fontSize: 12.sp,
+                                        color: AppColors.primaryBlack
+                                            .withOpacity(0.96)))),
                                 DataCell(Text(dataList[index].user.toString(),
                                     style: AppTextStyles.regularStyle.copyWith(
-                                        color: AppColors.hintColor,
-                                        fontSize: 12.sp))),
+                                        fontSize: 12.sp,
+                                        color: AppColors.primaryBlack
+                                            .withOpacity(0.96)))),
                               ])),
                     ),
                   ],
@@ -663,10 +681,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 22),
+                          padding:  EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 22.h),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8).w,
+                              borderRadius: BorderRadius.circular(8.r),
                               color: AppColors.blackLight),
                         ),
                    SizedBox(
@@ -713,10 +731,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 22),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.w
+                              , vertical: 22.h),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8).w,
+                              borderRadius: BorderRadius.circular(8.r),
                               color: AppColors.blackLight),
                         ),
                         SizedBox(
@@ -763,10 +782,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 22),
+                          padding:  EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 22.h
+                          ),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8).w,
+                              borderRadius: BorderRadius.circular(8.r
+                              ),
                               color: AppColors.blackLight),
                         ),
                         SizedBox(

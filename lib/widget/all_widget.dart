@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:svg_flutter/svg.dart';
 import 'package:truckerbs_website/app_list/app_list.dart';
 
 import '../themes/app_colors.dart';
@@ -247,6 +248,249 @@ class PicToTheRightSide extends StatelessWidget {
     );
   }
 }
+class NewsContainer extends StatelessWidget {
+  final String imagePath;
+  final VoidCallback onTapNews;
+  const NewsContainer({super.key, required this.imagePath, required this.onTapNews});
+
+  @override
+  Widget build(BuildContext context) {
+    return    GestureDetector(
+      onTap: onTapNews,
+      child: Container(
+        padding: EdgeInsets.zero,
+        margin: EdgeInsets.only(right: 60.w),
+        decoration: ShapeDecoration(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 1,
+              color: Colors.black.withValues(alpha: 38),
+            ),
+            borderRadius: BorderRadius.circular(16.r
+            ),
+          ),
+          shadows: [
+            BoxShadow(
+              color: Color(0x3F929292),
+              blurRadius: 20,
+              offset: Offset(0, 4),
+              spreadRadius: 0,
+            )
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+                height: 409.h,
+                fit: BoxFit.cover,
+                imagePath),
+            SizedBox(height: 10.h,),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 15.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Autonomous Trucks Set to Revolutionize the Industry',
+                    style:AppTextStyles.mulishStyle.copyWith(
+                      color: const Color(0xFF333333),
+                      fontSize: 32.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+
+                  ),
+                  SizedBox(height: 10.h,),
+                  Text(
+                      'Autonomous trucks are becoming a reality as major companies invest heavily in this',
+                      style: AppTextStyles.mulishStyle.copyWith(    color: const Color(0xFF8E8E93),
+                        fontSize: 24.sp,
+                        fontFamily: 'Mulish',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: -0.63,)
+                  ),
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Jonathan Louis   ',
+                          style:AppTextStyles.mulishStyle.copyWith(  color: const Color(0x99333333),
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w800,),
+                        ),
+                        TextSpan(
+                          text: '.',
+                          style: AppTextStyles.mulishStyle.copyWith(   color: const Color(0x99333333),
+                            fontSize: 32.sp,
+                            fontWeight: FontWeight.w800,)
+                        ),
+                        TextSpan(
+                          text: '    9 Comments',
+                          style: AppTextStyles.mulishStyle.copyWith( color: const Color(0x99333333),
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w800,)
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class KeyFeaturesContainer extends StatelessWidget {
+  final String imagePath;
+  const KeyFeaturesContainer({super.key, required this.imagePath});
+
+  @override
+  Widget build(BuildContext context) {
+    return    Container(
+      padding: EdgeInsets.zero,
+      margin: EdgeInsets.only(right: 60.w),
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            width: 1,
+            color: Colors.black.withValues(alpha: 38),
+          ),
+          borderRadius: BorderRadius.circular(16.r
+          ),
+        ),
+        shadows: [
+          BoxShadow(
+            color: Color(0x3F929292),
+            blurRadius: 20,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          )
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset(
+              height: 409.h,
+              fit: BoxFit.cover,
+              imagePath),
+          SizedBox(height: 10.h,),
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 15.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Autonomous Trucks Set to Revolutionize the Industry',
+                  style:AppTextStyles.mulishStyle.copyWith(
+                    color: const Color(0xFF333333),
+                    fontSize: 32.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+
+                ),
+                SizedBox(height: 10.h,),
+                Text(
+                    'Autonomous trucks are becoming a reality as major companies invest heavily in this',
+                    style: AppTextStyles.mulishStyle.copyWith(    color: const Color(0xFF8E8E93),
+                      fontSize: 24.sp,
+                      fontFamily: 'Mulish',
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: -0.63,)
+                ),
+                Text(
+                    'Read More >>',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.mulishStyle.copyWith(   color: const Color(0xFF333333),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w800,)
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+class FeaturesContainer extends StatelessWidget {
+  final String imagePath;
+  final String title;
+  final String subTitle;
+  const FeaturesContainer({super.key, required this.imagePath, required this.title, required this.subTitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      Expanded(
+        child: Container(
+          padding: EdgeInsets.all(8.w),
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                width: 1,
+                color: Colors.black.withValues(alpha: 38),
+              ),
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            shadows: [
+              BoxShadow(
+                color: Color(0x3F929292),
+                blurRadius: 20,
+                offset: Offset(0, 4),
+                spreadRadius: 0,
+              )
+            ],
+          ),
+          child:
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SvgPicture.asset(
+                  width: 40.w,
+                  height: 40.h,
+                imagePath),
+              SizedBox(width: 10.w,),
+              Expanded(
+                child: RichText(text: TextSpan(
+                    text:
+                    '$title\n',
+                    style: AppTextStyles.mulishStyle.copyWith(   color: const Color(0xFF333333),
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.w700,),
+                    children: [
+                      TextSpan(
+                          text:
+                          subTitle,
+                          style: AppTextStyles.mulishStyle.copyWith(      color: const Color(0xFF8E8E93),
+                            fontSize: 17.sp,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: -0.63,)
+                      )
+                    ]
+                ),
+                ),
+              ),
+
+            ],
+          ),
+        ),
+      );
+  }
+}
+
 
 class CommunityStoriesWidget extends StatelessWidget {
   final String imagePath;

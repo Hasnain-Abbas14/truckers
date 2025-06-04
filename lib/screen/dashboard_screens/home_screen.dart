@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truckerbs_website/screen/dashboard_screens/report_and_statistics/report_and_statistics.dart';
 import 'package:truckerbs_website/screen/dashboard_screens/setting_tab.dart';
 import 'package:truckerbs_website/screen/dashboard_screens/task_tab/tasks_tab.dart';
+import 'package:truckerbs_website/screen/dashboard_screens/tbs_tv/tbs_tv_screen.dart';
 import 'package:truckerbs_website/screen/dashboard_screens/user_tab/user_tab.dart';
 import '../../themes/app_colors.dart';
 import '../../themes/app_text_styles.dart';
@@ -25,8 +26,8 @@ class _HomeScreenDashboardState extends State<HomeScreenDashboard> {
     'assets/image/home/Chart.png',
     'assets/image/home/user.png',
     'assets/image/home/Document.png',
-    'assets/image/home/file.png',
     'assets/image/home/Activity.png',
+    'assets/image/home/Setting.png',
     'assets/image/home/Setting.png',
   ];
   final List tabList = [
@@ -34,8 +35,8 @@ class _HomeScreenDashboardState extends State<HomeScreenDashboard> {
     'Tasks',
     'Users',
     'Reports & Statistics',
-    'Files',
     'Messages',
+    'TBS TV',
     'Settings',
   ];
 
@@ -45,7 +46,7 @@ class _HomeScreenDashboardState extends State<HomeScreenDashboard> {
     return Scaffold(
           backgroundColor: AppColors.primaryWhite,
           body: Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+    padding:  EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -82,7 +83,7 @@ class _HomeScreenDashboardState extends State<HomeScreenDashboard> {
                         height: 25.h,width: 25.w,
                           color: _currentIndex == index
                               ? AppColors.primaryColor
-                              : AppColors.disableIconColor,
+                              : AppColors.hintColor,
                         image: AssetImage(iconList[index].toString()),),
                       title: Text(
                         tabList[index].toString(),
@@ -103,13 +104,13 @@ class _HomeScreenDashboardState extends State<HomeScreenDashboard> {
         ),
         Expanded(
           child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
             child: _currentIndex == 0? const DashBoardScreen():
             _currentIndex == 1?const TasksTab():
             _currentIndex == 2?const UserTab():
             _currentIndex == 3?const ReportAndStatisticsTab():
-            _currentIndex == 4?Container():
-            _currentIndex == 5?const MessageTab():
+            _currentIndex == 4?const MessageTab():
+            _currentIndex == 5?const TbsTvDashboard():
             _currentIndex == 6?const SettingTab()
                 : Container(),
           ),
